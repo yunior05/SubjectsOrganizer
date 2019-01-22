@@ -1,4 +1,4 @@
-module.export = {
+module.exports = {
   Name: 'CURSO DE REDACCION',
   Ciclo: '12019',
   Id_Subject: 'ESP301',

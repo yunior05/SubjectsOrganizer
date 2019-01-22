@@ -1,6 +1,12 @@
 
 @import '../../shared-styles/variables';
 
-.paragraph + .paragraph {
-  padding-top: $padding;
+.form {
+  margin: 0 auto;
+  border: solid 1px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
