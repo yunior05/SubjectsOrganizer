@@ -1,5 +1,7 @@
 import React from 'react';
+import SearchData from '../SearchData';
 import styles from './styles.scss';
+import data from '../../config/mock_data';
 
 class Home extends React.Component {
   constructor(props) {
@@ -7,7 +9,7 @@ class Home extends React.Component {
     this.state = {
       since: '',
       until: '',
-      renderSearch: true
+      renderSearch: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -16,17 +18,16 @@ class Home extends React.Component {
 
   handleChange(event){
     const {value, name} = event.target;
+    console.log(event.type)
     this.setState({
       [name]: value
     })
   }
 
   handleSubmit(event){
-    if(this.state.since && this.state.until){
-      this.setState({
-        renderSearch: true,
-      })
-    }
+    this.setState({
+      renderSearch: true,
+    })
     event.preventDefault()
   }
 
@@ -41,7 +42,10 @@ class Home extends React.Component {
         </form>
       </div>
       <div>
-        {this.state.renderSearch && <div> REnder!</div>}
+        {
+          this.state.renderSearch &&
+          <SearchData since={this.state.since} until={this.state.until} />
+        }
       </div>
     </div>
     )
