@@ -1,7 +1,8 @@
 import React from 'react';
-import SearchData from '../SearchData';
+import { SearchData } from '../SearchData';
 import styles from './styles.scss';
 import data from '../../config/mock_data';
+import RenderList from '../RenderList';
 import remove from '../utils/remove';
 
 class Home extends React.Component {
@@ -11,7 +12,8 @@ class Home extends React.Component {
       since: '',
       until: '',
       renderSearch: false,
-      selected: []
+      selected: [],
+      result: [],
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,28 +23,34 @@ class Home extends React.Component {
 
   handleChange(event){
     const { value, name } = event.target;
-    console.log(event.type)
     this.setState({
       [name]: value
     })
   }
 
   handleSubmit(event){
+    console.log(SearchData(this.state.since, this.state.until))
     this.setState({
       renderSearch: true,
+      result: SearchData(this.state.since, this.state.until)
     })
     event.preventDefault()
   }
 
   handleSelected(event){
+    console.log("SELECTED")
     const { value, name, checked } = event.target;
+    console.log(value)
     const list = this.state.selected
     this.setState({
       selected:  checked ? list.concat({name: name, value: value}) : remove(value, list)
     })
   }
 
+  
+
   render(){
+    
     return(
     <div className={styles.container}>
       <div className={styles.container}>
@@ -55,15 +63,15 @@ class Home extends React.Component {
       <div>
         {
           this.state.renderSearch &&
-          <form className={styles.form} onSubmit={this.handleSubmit} method="POST">
-            <SearchData since={this.state.since} until={this.state.until} handleChange={this.handleSelected}/>
-          </form>
+            <RenderList elements={this.state.result} handleChange={this.handleSelected}/>
+          // <form className={styles.form} onSubmit={this.handleSubmit} method="POST">
+            
+          // </form>
         }
+        <hr/>
         {
           this.state.selected &&
-            this.state.selected.map((obj) => {
-              return <div>{obj.name} : {obj.value} </div>
-            })
+            <RenderList elements={this.state.selected} withInputs={false} />
         }
       </div>
     </div>
