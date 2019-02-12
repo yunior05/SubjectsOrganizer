@@ -53,20 +53,17 @@ class Home extends React.Component {
     
     return(
     <div className={styles.container}>
-      <div className={styles.container}>
+      <div className={styles.container__form}>
         <form className={styles.form} onSubmit={this.handleSubmit} method="POST">
-          <input placeholder="Desde" value={this.state.since} onChange={this.handleChange} name="since" />
-          <input placeholder="Hasta" value={this.state.until} onChange={this.handleChange} name="until" />
-          <input type="submit" value="Buscar" />
+          <input className={styles.form__input} placeholder="Desde" value={this.state.since} onChange={this.handleChange} name="since" />
+          <input className={styles.form__input} placeholder="Hasta" value={this.state.until} onChange={this.handleChange} name="until" />
+          <input className={styles.form__button} type="submit" value="Buscar" />
         </form>
       </div>
-      <div>
-        {
+      <div className={styles.container__lists}>
+        { 
           this.state.renderSearch &&
-            <RenderList elements={this.state.result} handleChange={this.handleSelected}/>
-          // <form className={styles.form} onSubmit={this.handleSubmit} method="POST">
-            
-          // </form>
+            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleSelected}/> : <div>Error, rango especificado no encontrado.</div>)
         }
         <hr/>
         {
