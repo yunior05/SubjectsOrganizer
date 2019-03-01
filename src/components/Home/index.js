@@ -23,13 +23,20 @@ class Home extends React.Component {
 
   handleChange(event){
     const { value, name } = event.target;
-    this.setState({
-      [name]: value
-    })
+    name === 'since' ? (
+      this.setState({
+        [name]: value,
+        until: `${value.slice(0, 6)}999`
+      })
+    ): (
+      this.setState({
+        [name]: value
+      })
+    )
+
   }
 
   handleSubmit(event){
-    console.log(SearchData(this.state.since, this.state.until))
     this.setState({
       renderSearch: true,
       result: SearchData(this.state.since, this.state.until)
@@ -38,16 +45,13 @@ class Home extends React.Component {
   }
 
   handleSelected(event){
-    console.log("SELECTED")
-    const { value, name, checked } = event.target;
-    console.log(value)
-    const list = this.state.selected
+    const { value, checked } = event.target;
+    const {selected, result: subjectsList} = this.state;
+    const subject = subjectsList.filter(subject => subject.id === value)[0]
     this.setState({
-      selected:  checked ? list.concat({name: name, value: value}) : remove(value, list)
+      selected:  checked ? selected.concat(subject) : remove(value, selected)
     })
   }
-
-  
 
   render(){
     

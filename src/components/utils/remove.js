@@ -4,8 +4,7 @@ import { type } from "os";
 
 const remove = (value, list) => {
   return list.filter(element => {
-    console.log("ID => ", element, " value =>", value)
-    return element.value !== value;
+    return element.id !== value;
   })
 }
 
