@@ -16,7 +16,7 @@ const RenderList = ({ elements , style='',  handleChange , withInputs=true } ) =
           )}
         </div> 
       )}
-      {withInputs && <input type="checkbox" name={`Subject${i}`} value={item.id} onChange={handleChange} />}
+      {withInputs && <button type="button" name={`Subject${i}`} value={item.id} onClick={handleChange} >+</button>}
     </li>
     ))
   return (

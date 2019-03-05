@@ -45,11 +45,12 @@ class Home extends React.Component {
   }
 
   handleSelected(event){
-    const { value, checked } = event.target;
+    let { name, value } = event.target;
     const {selected, result: subjectsList} = this.state;
-    const subject = subjectsList.filter(subject => subject.id === value)[0]
+    const subject = subjectsList.filter(subject => subject.id === value)[0] //Search Subject to extract their data
+    const inSelect = selected.find(e => e.id = subject.id) //Verify if the subject exist in the list of selected
     this.setState({
-      selected:  checked ? selected.concat(subject) : remove(value, selected)
+      selected:  inSelect === undefined ? selected.concat(subject) : remove(value, selected)
     })
   }
 
@@ -71,7 +72,7 @@ class Home extends React.Component {
         }
         <hr/>
         {
-          this.state.selected &&
+          this.state.selected.length > 0 &&
             <RenderList elements={this.state.selected} withInputs={false} />
         }
       </div>
