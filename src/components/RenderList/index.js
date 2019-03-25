@@ -6,7 +6,6 @@ import styles from './styles.scss';
 const RenderList = ({ elements , style='',  handleChange , withInputs=true } ) => {
   const items = elements.map((item, i) => (
     <li className={styles.element} key={item.id}>
-      {/* {item.id} | {item.classroom} | Es virtual: {item.virtual ? "SI" : "NO"}  */}
       {Object.keys(item).map(key => 
         <div className={styles.item} key={item[key]}>
           {key == 'virtual' ? (  
@@ -16,7 +15,7 @@ const RenderList = ({ elements , style='',  handleChange , withInputs=true } ) =
           )}
         </div> 
       )}
-      {withInputs && <button type="button" name={`Subject${i}`} value={item.id} onClick={handleChange} >+</button>}
+      {<button type="button" name={`Subject${i}`} value={item.id} onClick={handleChange} > {withInputs ? '+' : '-'} </button>}
     </li>
     ))
   return (

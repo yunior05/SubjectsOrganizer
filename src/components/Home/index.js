@@ -18,7 +18,9 @@ class Home extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleSelected = this.handleSelected.bind(this);
+    this.handleAdd= this.handleAdd.bind(this);
+    this.handleRemove= this.handleRemove.bind(this);
+
   }
 
   handleChange(event){
@@ -44,15 +46,30 @@ class Home extends React.Component {
     event.preventDefault()
   }
 
-  handleSelected(event){
-    let { name, value } = event.target;
+  handleAdd(event){
+    let { value } = event.target;
     const {selected, result: subjectsList} = this.state;
     const subject = subjectsList.filter(subject => subject.id === value)[0] //Search Subject to extract their data
-    const inSelect = selected.find(e => e.id = subject.id) //Verify if the subject exist in the list of selected
-    this.setState({
-      selected:  inSelect === undefined ? selected.concat(subject) : remove(value, selected)
-    })
+    const inSelect = selected.find(e => e.id.slice(0, 6) === subject.id.slice(0, 6)) //Verify if the subject exist in the list of selected
+    inSelect === undefined ? (
+      this.setState({
+        selected: this.state.selected.concat(subject)
+      })
+    ): (
+      alert("Ya existe un grupo de esta materia seleccionado")
+    )
+    
   }
+
+  handleRemove(event){
+    let { value } = event.target;
+    if(confirm("Desea eliminar esta materia?")) {
+      this.setState({
+        selected: remove(value, this.state.selected)
+      })
+    }
+  }
+
 
   render(){
     
@@ -68,12 +85,12 @@ class Home extends React.Component {
       <div className={styles.container__lists}>
         { 
           this.state.renderSearch &&
-            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleSelected}/> : <div>Error, rango especificado no encontrado.</div>)
+            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleAdd}/> : <div>Error, rango especificado no encontrado.</div>)
         }
         <hr/>
         {
           this.state.selected.length > 0 &&
-            <RenderList elements={this.state.selected} withInputs={false} />
+            <RenderList elements={this.state.selected} handleChange={this.handleRemove} withInputs={false} />
         }
       </div>
     </div>
