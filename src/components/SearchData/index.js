@@ -8,7 +8,7 @@ export const SearchData = (since, until) => { //since = ESP301001 until = ESP301
   const untilNumber = toInt(until) 
    data.Groups.map((group) => {
     if(group.id.substr(-3) >= sinceNumber && group.id.substr(-3) <= untilNumber) {
-      dataFilter.push({ id: group.id, classroom: group.classroom, virtual: group.virtual });
+      dataFilter.push({ id: group.id, classroom: group.classroom, virtual: group.virtual, date: group.date });
     }
   })
   return dataFilter
