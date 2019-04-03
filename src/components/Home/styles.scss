@@ -1,13 +1,42 @@
 
 @import '../../shared-styles/variables';
 
-.form {
-  margin: 0 auto;
-  border: solid 1px;
-}
 
 .container {
   display: flex;
-  justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 25px;
+
+  &__form {
+    font-size: 18px;
+    width: 100%;
+    padding: 25px;
+    background-color: #d0d0d0;
+  }
+
+  &__lists{
+    display: flex;
+    margin: 25px;
+    width: 100%;
+  }
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 566px;
+  
+  &__input {
+    margin: 0 10px;
+    border-style: hidden;
+    padding: 5px;
+  }
+
+  &__button {
+    border: 2px solid #303130;
+    padding: 5px;
+    font-family: initial;
+    font-weight: 600;
+  }
+  
 }
