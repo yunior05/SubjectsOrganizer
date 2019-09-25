@@ -6,7 +6,7 @@ module.exports = {
       {
           id: 'ESP301001',
           classroom: 'B105 -B412',
-          virtual: ' False',
+          virtual: false,
           date: [
               {
                 day: 1,
@@ -23,7 +23,7 @@ module.exports = {
       {
           id: 'ESP301002',
           classroom: 'B120 -B227',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 2,
@@ -35,7 +35,7 @@ module.exports = {
       {
           id: 'ESP301003',
           classroom: 'A306 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 4,
@@ -52,7 +52,7 @@ module.exports = {
       {
           id: 'ESP301004',
           classroom: 'B316 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -64,7 +64,7 @@ module.exports = {
       {
           id: 'ESP301005',
           classroom: 'B312 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -76,7 +76,7 @@ module.exports = {
       {
           id: 'ESP301006',
           classroom: 'B307 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -88,7 +88,7 @@ module.exports = {
       {
           id: 'ESP301007',
           classroom: 'B123 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -100,7 +100,7 @@ module.exports = {
       {
           id: 'ESP301008',
           classroom: 'A308 -A303',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -112,7 +112,7 @@ module.exports = {
       {
           id: 'ESP301010',
           classroom: 'B409 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -124,7 +124,7 @@ module.exports = {
       {
           id: 'ESP301011',
           classroom: 'B203 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -136,7 +136,7 @@ module.exports = {
       {
           id: 'ESP301012',
           classroom: 'B523 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -148,7 +148,7 @@ module.exports = {
       {
           id: 'ESP301013',
           classroom: 'B209 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -160,7 +160,7 @@ module.exports = {
       {
           id: 'ESP301014',
           classroom: 'B316 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -172,7 +172,7 @@ module.exports = {
       {
           id: 'ESP301015',
           classroom: 'C304 -B307',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -184,7 +184,7 @@ module.exports = {
       {
           id: 'ESP301016',
           classroom: 'B223 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -196,7 +196,7 @@ module.exports = {
       {
           id: 'ESP301017',
           classroom: 'B305 -B418',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -208,7 +208,7 @@ module.exports = {
       {
           id: 'ESP301018',
           classroom: 'B221 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -220,7 +220,7 @@ module.exports = {
       {
           id: 'ESP301019',
           classroom: 'B305 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -232,7 +232,7 @@ module.exports = {
       {
           id: 'ESP301021',
           classroom: 'B105 -B102',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -244,7 +244,7 @@ module.exports = {
       {
           id: 'ESP301022',
           classroom: 'B305 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -256,7 +256,7 @@ module.exports = {
       {
           id: 'ESP301023',
           classroom: 'B208 -B206',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -268,7 +268,7 @@ module.exports = {
       {
           id: 'ESP301024',
           classroom: 'B316 -B105',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -280,7 +280,7 @@ module.exports = {
       {
           id: 'ESP301025',
           classroom: 'B112 -B205',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -292,7 +292,7 @@ module.exports = {
       {
           id: 'ESP301026',
           classroom: 'B304 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -304,7 +304,7 @@ module.exports = {
       {
           id: 'ESP301028',
           classroom: 'B124 -A206',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -316,7 +316,7 @@ module.exports = {
       {
           id: 'ESP301030',
           classroom: 'B212 -',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -328,7 +328,7 @@ module.exports = {
       {
           id: 'ESP301032',
           classroom: 'B118 -B107',
-          virtual: ' False',
+          virtual: false,
           date: [
             {
               day: 1,
@@ -339,8 +339,8 @@ module.exports = {
       },
       {
           id: 'ESP301100',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -351,8 +351,8 @@ module.exports = {
       },
       {
           id: 'ESP301101',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -363,8 +363,8 @@ module.exports = {
       },
       {
           id: 'ESP301102',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -375,8 +375,8 @@ module.exports = {
       },
       {
           id: 'ESP301103',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -387,8 +387,8 @@ module.exports = {
       },
       {
           id: 'ESP301104',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -399,8 +399,8 @@ module.exports = {
       },
       {
           id: 'ESP301105',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,
@@ -411,8 +411,8 @@ module.exports = {
       },
       {
           id: 'ESP301106',
-          classroom: 'VIRTU-',
-          virtual: ' True',
+          classroom: 'AULA VIRTUAL',
+          virtual: true,
           date: [
             {
               day: 1,

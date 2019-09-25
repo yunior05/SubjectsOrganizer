@@ -1,30 +1,29 @@
 import React from 'react';
-// import RenderProp from '../utils/RenderProp';
 
 import styles from './styles.scss';
-import { deflateSync } from 'zlib';
 
 const DAYS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
 
 const RenderList = ({ elements , style='',  handleChange , withInputs=true } ) => {
-  const items = elements.map((item, i) => (
+  const items = elements.map((item, i) => {
+    const { virtual, date, classroom, id} = item;
+
+    return (
     <li className={styles.element} key={item.id}>
-      {Object.keys(item).map(key => 
-        <div className={styles.item} key={item[key]}>
-          {key == 'virtual' ? (  
-            item[key] === " True" ? "SI" : "NO"
-          ):(
-            key === 'date' ? item[key].map(days => {
+      <div className={styles.item} key={id}>{id}</div> 
+      <div className={styles.item} key={classroom}>{classroom}</div> 
+      <div className={styles.item} key={virtual}>{virtual ? "SI" : "NO"}</div>
+      <div className={styles.item} key={date[0]}>{date.map(days => {
               return (
                 <div style={{  margin: 5}}>{DAYS[days.day-1]}: {days.start} a {days.finish}</div>
               )
-            }) : item[key]
-          )}
-        </div> 
-      )}
+            })}
+      </div>
       {<button type="button" name={`Subject${i}`} value={item.id} onClick={handleChange} > {withInputs ? '+' : '-'} </button>}
     </li>
-    ))
+    )
+  });
+
   return (
     <ul className={styles.list}>
       <li className={styles.element}>
