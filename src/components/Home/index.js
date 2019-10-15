@@ -4,6 +4,7 @@ import styles from './styles.scss';
 import data from '../../config/mock_data';
 import RenderList from '../RenderList';
 import remove from '../utils/remove';
+import getData from '../utils/getData'
 
 class Home extends React.Component {
   constructor(props) {
@@ -51,15 +52,41 @@ class Home extends React.Component {
     let { value } = event.target;
     const {selected, result: subjectsList} = this.state;
     const subject = subjectsList.filter(subject => subject.id === value)[0] //Search Subject to extract their data
-    const inSelect = selected.find(e => e.id.slice(0, 6) === subject.id.slice(0, 6)) //Verify if the subject exist in the list of selected
-    inSelect === undefined ? (
-      this.setState({
-        selected: this.state.selected.concat(subject)
+    const sameGroup = selected.find(e => e.id.slice(0, 6) === subject.id.slice(0, 6)) //Verify if the subject exist in the list of selected
+    if(sameGroup != undefined) return alert("Ya existe un grupo de esta materia seleccionado");
+  
+
+    const sameDate = () => {
+      const subjectDateList = subject.date.map((dateTime) => (createDate(dateTime)));
+
+      selected.forEach((e) => {
+        e.date.map(function(dateTime){
+          startDate = createDate(dateTime.startDate);
+          endDate = createDate(dateTime.endDate);
+          subjectDateList.forEach((subjectDate) => {
+            subStartDate = createDate(subjectDate.startDate);
+            subEndDate = createDate(subjectDate.endDate);
+
+            if(subStartDate < endDate && subStartDate > startDate) return true
+            if(subEndDate < endDate && subEndDate > startDate) return true
+          })
+        })
       })
-    ): (
-      alert("Ya existe un grupo de esta materia seleccionado")
-    )
-    
+
+      return false;
+    }
+
+    const createDate = (time) => {
+      const BASEDATE = "2000/01/01 ";
+      return new Date(Date.parse(BASEDATE + time))
+    }
+  
+
+    if(sameDate()) return alert("Existe una materia en conflicto con las horas");
+
+    this.setState({
+      selected: this.state.selected.concat(subject)
+    })
   }
 
   handleRemove(event){
@@ -72,12 +99,13 @@ class Home extends React.Component {
   }
 
 
+
   render(){
     
     return(
     <div className={styles.container}>
       <div className={styles.container__form}>
-        <form className={styles.form} onSubmit={this.handleSubmit} method="POST">
+        <form className={styles.form} onSubmit={this.handleSubmit}>
           <input className={styles.form__input} placeholder="Desde" value={this.state.since} onChange={this.handleChange} name="since" />
           <input className={styles.form__input} placeholder="Hasta" value={this.state.until} onChange={this.handleChange} name="until" />
           <input className={styles.form__button} type="submit" value="Buscar" />

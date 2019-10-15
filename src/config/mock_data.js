@@ -1,8 +1,8 @@
 module.exports = {
-  Name: 'CURSO DE REDACCION',
-  Ciclo: '12019',
-  Id_Subject: 'ESP301',
-  Groups: [
+  name: 'CURSO DE REDACCION',
+  niclo: '12019',
+  id_Subject: 'ESP301',
+  groups: [
       {
           id: 'ESP301001',
           classroom: 'B105 -B412',
@@ -10,13 +10,13 @@ module.exports = {
           date: [
               {
                 day: 1,
-                start: '7:00pm',
-                finish: '8:30pm'
+                start: '7:00 PM',
+                finish: '8:30 PM'
               },
               {
                 day: 2,
-                start: '8:30pm',
-                finish: '10:00pm'
+                start: '8:30 PM',
+                finish: '10:00 PM'
               }
         ]
       },
@@ -27,8 +27,8 @@ module.exports = {
           date: [
             {
               day: 2,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             }
       ]
       },
@@ -39,13 +39,13 @@ module.exports = {
           date: [
             {
               day: 4,
-              start: '8:30pm',
-              finish: '10:00pm'
+              start: '8:30 PM',
+              finish: '10:00 PM'
             },
             {
               day: 5,
-              start: '8:30pm',
-              finish: '10:00pm'
+              start: '8:30 PM',
+              finish: '10:00 PM'
             }
       ]
       },
@@ -56,8 +56,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -68,8 +68,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -80,8 +80,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -92,8 +92,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -104,8 +104,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -116,8 +116,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -128,8 +128,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -140,8 +140,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -152,8 +152,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -164,8 +164,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -176,8 +176,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -188,8 +188,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -200,8 +200,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -212,8 +212,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -224,8 +224,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -236,8 +236,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -248,8 +248,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -260,8 +260,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -272,8 +272,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -284,8 +284,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -296,8 +296,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -308,8 +308,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -320,8 +320,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -332,8 +332,8 @@ module.exports = {
           date: [
             {
               day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
+              start: '7:00 PM',
+              finish: '8:30 PM'
             },
       ]
       },
@@ -341,85 +341,43 @@ module.exports = {
           id: 'ESP301100',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301101',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301102',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301103',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301104',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301105',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
       {
           id: 'ESP301106',
           classroom: 'AULA VIRTUAL',
           virtual: true,
-          date: [
-            {
-              day: 1,
-              start: '7:00pm',
-              finish: '8:30pm'
-            },
-      ]
+          date: []
       },
  ]
  }
