@@ -1,6 +1,6 @@
 module.exports = {
   name: 'CURSO DE REDACCION',
-  niclo: '12019',
+  cyclo: '12019',
   id_Subject: 'ESP301',
   groups: [
       {
