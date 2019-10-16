@@ -1,12 +1,15 @@
-from flask import Flask, jsonify
+from flask import Flask, request
+from flask_cors import CORS
 import json
 import data 
 app = Flask(__name__)
 
+#Allow cross-origin
+CORS(app)
+
 @app.route('/')
 def index():
-#   data.printData('INF117')
-  result = data.get_data('ESP301')
+  result = data.get_data(request.args.get('id', default="INF117", type= str))
   def obj_dict(obj):
     return obj.__dict__
   return json.dumps(result, default = obj_dict)

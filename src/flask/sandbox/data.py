@@ -1,12 +1,20 @@
 from bs4 import BeautifulSoup as bs
 from flask import request
-import urllib2 as uReq
+import urllib.request as uReq
+import requests
+import dates
+
+
+def get_cookies(url):
+    r = requests.get(url, timeout=5)
+    for cookie in r.cookies:
+        return str(cookie)[8:-20]
+
 
 def get_data(subject_id):
+    DAYS = ['L', 'MA', 'MI', 'J', 'V', 'S']
     url_cookies = 'http://www.utesa.edu/webutesa/recintos/Santiago/HomeSG.asp?reci=UTSAN'
-    r = uReq.urlopen(url_cookies,timeout=5)
-    cook = str(r.info()['Set-Cookie'])[:-7]
-    print("subjectId", subject_id);
+    cook = get_cookies(url_cookies)
     url = "http://www.utesa.edu/webutesa/recintos/InfGen/Horarios2.asp?FDesde=%s&Fhasta=%s&x=65&y=5&SelCiclo=32019"
     opener = uReq.build_opener()  
     opener.addheaders.append(('Cookie', cook))
@@ -38,25 +46,37 @@ def get_data(subject_id):
             subject['groups'].append(group)
 
     class materia:
-        def __init__(self, name, groups):
+        def __init__(self, id_m, name, cycle, groups):
+            self.id = id_m
             self.name = name
+            self.cycle = cycle
             self.groups = groups
 
     class grupo:
-        def __init__(self, id_g, time, classroom, virtual = False):
+        def __init__(self, id_g, date, classroom, virtual = False):
             self.id = id_g
-            self.time = time
+            self.date = date
             self.classroom = classroom
             self.virutal = virtual
 
-    subject_ob = materia(subject['name'], [])
+    class date:
+        def __init__(self, day, start, finish):
+            self.day = day
+            self.start = start
+            self.finish = finish
+
+    subject_ob = materia(subject_id,  subject['name'], '32019', [])
 
     for g in subject['groups']:
-        gup = grupo(g['id'], g['time'], g['classroom'])
+        if (g['classroom'] == "VIRTU-"):
+            gup = grupo(g['id'], [], "AULA VIRTUAL", True)
+        else:
+            date = dates.getAllDates(g['time'])
+            gup = grupo(g['id'], date, g['classroom'])
+        
         subject_ob.groups.append(gup)
     
-    subject_ob.cicle = '32019'
-    subject_ob.id_subject = subject_id
+    subject_ob.cycle = '32019'
     return subject_ob
 
 
