@@ -39,10 +39,16 @@ class Home extends React.Component {
   }
 
   handleSubmit(event){
-    this.setState({
-      renderSearch: true,
-      result: SearchData(this.state.since, this.state.until)
+    SearchData(this.state.since, this.state.until).then(data => {
+      this.setState({
+        renderSearch: true,
+        result: data
+      })
     })
+<<<<<<< HEAD
+  
+=======
+>>>>>>> 4173f577879b23fb1ebb005f5a2756210b82decf
     event.preventDefault();
     event.stopPropagation();
   }
