@@ -77,14 +77,12 @@ def getDates(dateString, vesp = False):
     if((hoursS < 7 or (hoursF < 10 or (hoursF == 10 and minutesF > 0))) or vesp):
       startHour += "pm"
       finish += "pm"
-      # finish = finish[:finish.find("pm")-1] + "pm"
     else:
       startHour += "am"
       if(hoursF >=12):
         finish += "pm"
       else:
         finish += "am"
-      # finish = finish[:finish.find("am")-1] + "am"
 
   for dayLetter in DAYS:
     if(day.find(dayLetter) != -1): 
@@ -132,7 +130,3 @@ if __name__ == "__main__":
   #example with J4:00,4:45,V4:45,5:30 pm
   case = "J8:00,11:15 am"
   print(getAllDates(case))
-      
-
-
-
