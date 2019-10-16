@@ -45,7 +45,10 @@ class Home extends React.Component {
         result: data
       })
     })
+<<<<<<< HEAD
   
+=======
+>>>>>>> 4173f577879b23fb1ebb005f5a2756210b82decf
     event.preventDefault();
     event.stopPropagation();
   }
