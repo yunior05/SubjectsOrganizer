@@ -43,7 +43,8 @@ class Home extends React.Component {
       renderSearch: true,
       result: SearchData(this.state.since, this.state.until)
     })
-    event.preventDefault()
+    event.preventDefault();
+    event.stopPropagation();
   }
 
   handleAdd(event){
