@@ -25,8 +25,27 @@ def getDates(dateString, vesp = False):
     finish = dateString[sPos+2:]
   else:
     sPos = dateString.find(',')
-    start = dateString[:sPos]
-    finish = dateString[sPos+1:]
+    if(sPos == -1):
+      start = dateString
+
+      hdPos = 0
+      for l in start:
+        if (l.isdigit()):
+          hdPos = start.index(l) 
+          break
+      time = ""
+      if(start.find("pm") != -1):
+        time = "pm"
+        start = start[:start.find("pm")-1] 
+      elif(start.find("am") != -1):
+        time = "am"
+        start = start[:start.find("am")-1]
+
+      finish = start[hdPos:] + time
+
+    else:
+      start = dateString[:sPos]
+      finish = dateString[sPos+1:]
 
     hoursF = int(finish[:finish.find(":")])
     temp = ""
@@ -58,31 +77,31 @@ def getDates(dateString, vesp = False):
   pm = finish.find("pm")
   am = finish.find("am")
   if(pm != -1):
-    finish = finish[:pm-1] + "pm"
+    finish = finish[:pm] + "pm"
     finishWithoutPm = finish[:finish.find("pm")]
-    if(restHours(startHour, finishWithoutPm)): startHour += "am"
-    else: startHour += "pm"
+    if(restHours(startHour, finishWithoutPm)): startHour += " am"
+    else: startHour += " pm"
 
   elif(am != -1):
     if(int(finish[:finish.find(":")]) == 12):
-      finish = finish[:am-1] + "pm"
+      finish = finish[:am] + "pm"
     else:
-      finish = finish[:am-1] + "am"
+      finish = finish[:am] + "am"
     
-    startHour += "am"
+    startHour += " am"
   else:
     hoursS = int(startHour[:startHour.find(":")])
     hoursF = int(finish[:finish.find(":")])
     minutesF = int(finish[finish.find(":")+1:])
     if((hoursS < 7 or (hoursF < 10 or (hoursF == 10 and minutesF > 0))) or vesp):
-      startHour += "pm"
-      finish += "pm"
+      startHour += " pm"
+      finish += " pm"
     else:
-      startHour += "am"
+      startHour += " am"
       if(hoursF >=12):
-        finish += "pm"
+        finish += " pm"
       else:
-        finish += "am"
+        finish += " am"
 
   for dayLetter in DAYS:
     if(day.find(dayLetter) != -1): 
@@ -96,17 +115,12 @@ def getDates(dateString, vesp = False):
 
 def getAllDates(dateString):
   """Verify if exist multiple dates in one string and concatenate it"""
-  def divide(param):
+  def divide(pos):
     """Return the list calling getDates if the dateString have two dates"""
     first = ""
     second = ""
-    if(param == 0):
-      first = dateString[:dateString.find(',')]
-      second = dateString[dateString.find(',')+1:]
-      
-    else:
-      first = dateString[:dateString.find(',', dateString.find(',')+1)]
-      second = dateString[dateString.find(',', dateString.find(',')+1)+1:]
+    first = dateString[:pos]
+    second = dateString[pos+1:]
 
     secondData = getDates(second)
     if(secondData[0]["finish"].find("pm") != -1):
@@ -114,19 +128,18 @@ def getAllDates(dateString):
     else:
       return getDates(first) + getDates(second)
 
-  initPos = dateString.find(',')
-  if(dateString.find(',') == -1):
+  initPos = -1
+  for day in DAYS:
+    if(dateString.find(","+day) != -1):
+      initPos = dateString.find(","+day)
+
+  if(initPos == -1):
     return getDates(dateString)
   else:
-    if(dateString.find(' a ', 0, initPos) != -1):
-      return divide(0)
-    elif(dateString.find(',', initPos+1) != -1):
-      return divide(1)
-    else:
-      return getDates(dateString)
+    return divide(initPos)
   
 
 if __name__ == "__main__":
   #example with J4:00,4:45,V4:45,5:30 pm
-  case = "J8:00,11:15 am"
+  case = "J4:00,4:45,V4:45,5:30 pm"
   print(getAllDates(case))

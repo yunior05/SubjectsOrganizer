@@ -1,10 +1,8 @@
 import React from 'react';
 import { SearchData } from '../SearchData';
 import styles from './styles.scss';
-import data from '../../config/mock_data';
 import RenderList from '../RenderList';
 import remove from '../utils/remove';
-import getData from '../utils/getData'
 
 class Home extends React.Component {
   constructor(props) {
@@ -58,25 +56,26 @@ class Home extends React.Component {
     const sameGroup = selected.find(e => e.id.slice(0, 6) === subject.id.slice(0, 6)) //Verify if the subject exist in the list of selected
     if(sameGroup != undefined) return alert("Ya existe un grupo de esta materia seleccionado");
   
-
+    //This function compare the dates for each subject date and return true if a conflict exist
     const sameDate = () => {
-      const subjectDateList = subject.date.map((dateTime) => (createDate(dateTime)));
+      let result = false;
+      const subjectDateList = subject.date.map(({ start, finish, day}) => { 
+          return { subStartDate: createDate(start), subEndDate: createDate(finish), day }
+        });
 
-      selected.forEach((e) => {
-        e.date.map(function(dateTime){
-          startDate = createDate(dateTime.startDate);
-          endDate = createDate(dateTime.endDate);
-          subjectDateList.forEach((subjectDate) => {
-            subStartDate = createDate(subjectDate.startDate);
-            subEndDate = createDate(subjectDate.endDate);
-
-            if(subStartDate < endDate && subStartDate > startDate) return true
-            if(subEndDate < endDate && subEndDate > startDate) return true
+      selected.map((selectSubject) => {
+        selectSubject.date.map((dateTime) => {
+          const startDate = createDate(dateTime.start);
+          const endDate = createDate(dateTime.finish);
+ 
+          subjectDateList.map(({ subStartDate, subEndDate, day }) => {
+            if(subStartDate < endDate && subStartDate >= startDate && day == dateTime.day) result =  true
+            if(subEndDate < endDate && subEndDate > startDate && day == dateTime.day) result =  true
           })
         })
       })
 
-      return false;
+      return result;
     }
 
     const createDate = (time) => {
@@ -84,7 +83,7 @@ class Home extends React.Component {
       return new Date(Date.parse(BASEDATE + time))
     }
   
-
+    console.log(sameDate());
     if(sameDate()) return alert("Existe una materia en conflicto con las horas");
 
     this.setState({
