@@ -34,3 +34,15 @@
   margin: $padding auto;
   background: url('../../images/icon-kytLogo_large-252x252.svg');
 }
+
+
+
+@media print {
+
+  ul#selected {
+    width: 100%;
+    [type="button"] {
+      display: none !important;
+    }
+  }
+}

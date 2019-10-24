@@ -4,6 +4,7 @@ import styles from './styles.scss';
 import ShowTable from '../ShowTable';
 import RenderList from '../RenderList';
 import remove from '../utils/remove';
+import { PrintTool } from "react-print-tool";
 
 class Home extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ class Home extends React.Component {
     this.handleAdd= this.handleAdd.bind(this);
     this.handleRemove= this.handleRemove.bind(this);
     this.handleTable= this.handleTable.bind(this);
+    this.handlePrint = this.handlePrint.bind(this);
 
   }
 
@@ -86,7 +88,6 @@ class Home extends React.Component {
       return new Date(Date.parse(BASEDATE + time))
     }
   
-    console.log(sameDate());
     if(sameDate()) return alert("Existe una materia en conflicto con las horas");
 
     this.setState({
@@ -110,6 +111,9 @@ class Home extends React.Component {
     }
   }
 
+  handlePrint(event) {
+    PrintTool.printFromReactComponent(<RenderList elements={this.state.selected} handleChange={this.handleRemove} selected={true} printMode={true} />);
+  }
 
 
   render(){
@@ -123,22 +127,24 @@ class Home extends React.Component {
           <input className={styles.form__button} type="submit" value="Buscar" />
         </form>
       </div>
-      <div className="table-container">
-        <button onClick={this.handleTable}>Mostrar Tabla</button>
+      <div className={styles.options__container}>
+        <button className={styles.button} onClick={this.handleTable}>Mostrar Tabla</button>
         <div>
         { this.state.showTable ? <div><ShowTable items={this.state.selected} /></div> : ""}
+        </div>
+        <button className={styles.button} disabled={this.state.selected.length == 0} onClick={this.handlePrint}>Imprimir/guardar seleccionados</button> 
       </div>
-      </div>
+
 
       <div className={styles.container__lists}>
         { 
           this.state.renderSearch &&
-            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleAdd}/> : <div>Error, rango especificado no encontrado.</div>)
+            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleAdd} id="results" /> : <div>Error, rango especificado no encontrado.</div>)
         }
         <hr/>
         {
           this.state.selected.length > 0 &&
-            <RenderList elements={this.state.selected} handleChange={this.handleRemove} selected={true} />
+            <RenderList elements={this.state.selected} handleChange={this.handleRemove} selected={true} id="selected" />
         }
       </div>
     </div>

@@ -40,3 +40,17 @@
   }
   
 }
+
+.options {
+  &__container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+}
+
+.button {
+  border: 1px solid;
+  font-weight: bold;
+  padding: 5px;
+}
