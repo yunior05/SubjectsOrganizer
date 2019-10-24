@@ -4,3 +4,5 @@ build
 package-lock.json
 src/flask/sandbox/venv
 src/flask/sandbox/__pycache__
+
+.pyc

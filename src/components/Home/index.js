@@ -1,6 +1,7 @@
 import React from 'react';
 import { SearchData } from '../SearchData';
 import styles from './styles.scss';
+import ShowTable from '../ShowTable';
 import RenderList from '../RenderList';
 import remove from '../utils/remove';
 
@@ -13,12 +14,14 @@ class Home extends React.Component {
       renderSearch: false,
       selected: [],
       result: [],
+      showTable: false
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleAdd= this.handleAdd.bind(this);
     this.handleRemove= this.handleRemove.bind(this);
+    this.handleTable= this.handleTable.bind(this);
 
   }
 
@@ -45,7 +48,6 @@ class Home extends React.Component {
       })
     })
 
-  
     event.preventDefault();
     event.stopPropagation();
   }
@@ -92,6 +94,13 @@ class Home extends React.Component {
     })
   }
 
+  handleTable(event){
+    const { showTable } = this.state;
+    this.setState({ showTable: !showTable });
+    event.preventDefault();
+    event.stopPropagation();
+  }
+
   handleRemove(event){
     let { value } = event.target;
     if(confirm("Desea eliminar esta materia?")) {
@@ -114,6 +123,13 @@ class Home extends React.Component {
           <input className={styles.form__button} type="submit" value="Buscar" />
         </form>
       </div>
+      <div className="table-container">
+        <button onClick={this.handleTable}>Mostrar Tabla</button>
+        <div>
+        { this.state.showTable ? <div><ShowTable items={this.state.selected} /></div> : ""}
+      </div>
+      </div>
+
       <div className={styles.container__lists}>
         { 
           this.state.renderSearch &&
@@ -122,7 +138,7 @@ class Home extends React.Component {
         <hr/>
         {
           this.state.selected.length > 0 &&
-            <RenderList elements={this.state.selected} handleChange={this.handleRemove} withInputs={false} />
+            <RenderList elements={this.state.selected} handleChange={this.handleRemove} selected={true} />
         }
       </div>
     </div>
