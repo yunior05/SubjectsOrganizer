@@ -45,6 +45,7 @@ class Home extends React.Component {
       })
     })
 
+  
     event.preventDefault();
     event.stopPropagation();
   }
