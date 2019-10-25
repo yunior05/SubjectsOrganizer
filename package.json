@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://yunior05.github.io/SubjectsOrganizer",
   "author": "Yunior Almengo <yalmengo@intellisys.com.do>",
   "license": "MIT",
   "dependencies": {
@@ -10,11 +11,13 @@
     "babel-preset-kyt-react": "0.3.0",
     "compression": "1.6.2",
     "express": "4.15.3",
+    "i18next": "^18.0.0",
     "kyt": "0.9.0",
     "moment": "^2.24.0",
     "node-gyp": "^5.0.3",
     "react": "15.3.0",
     "react-dom": "15.3.0",
+    "react-i18next": "^9.0.10",
     "react-print-tool": "^2.0.0",
     "react-router": "2.6.1"
   },
@@ -35,7 +38,9 @@
     "lint": "npm run lint-script && npm run lint-style",
     "lint-script": "kyt lint-script",
     "lint-style": "kyt lint-style",
-    "kyt:help": "kyt --help"
+    "kyt:help": "kyt --help",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "repository": "https://github.com/yunior05/SubjectsOrganizer.git"
 }
