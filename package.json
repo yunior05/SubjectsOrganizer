@@ -33,7 +33,7 @@
     "start": "npm run build && node build/server/main.js",
     "proto": "kyt proto",
     "test": "kyt test",
-    "api": "cd src/flask/sandbox/venv/Scripts && activate && cd ../../ && flask run",
+    "api": "cd src/flask/sandbox/venv/Scripts/ && activate && cd ../../ && flask run",
     "test-watch": "kyt test -- --watch",
     "test-coverage": "kyt test -- --coverage",
     "lint": "npm run lint-script && npm run lint-style",

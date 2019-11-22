@@ -55,7 +55,7 @@ class Home extends React.Component {
   }
 
   handleAdd(event){
-    let { value } = event.target;
+    const { value } = event.target;
     const {selected, result: subjectsList} = this.state;
     const subject = subjectsList.filter(subject => subject.id === value)[0] //Search Subject to extract their data
     const sameGroup = selected.find(e => e.id.slice(0, 6) === subject.id.slice(0, 6)) //Verify if the subject exist in the list of selected
@@ -139,7 +139,7 @@ class Home extends React.Component {
       <div className={styles.container__lists}>
         { 
           this.state.renderSearch &&
-            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleAdd} id="results" /> : <div>Error, rango especificado no encontrado.</div>)
+            (this.state.result.length ? <RenderList elements={this.state.result} handleChange={this.handleAdd} style={styles.results} id="results" /> : <div>Error, rango especificado no encontrado.</div>)
         }
         <hr/>
         {

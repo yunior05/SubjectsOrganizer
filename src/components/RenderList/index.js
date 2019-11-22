@@ -4,7 +4,7 @@ import styles from './styles.scss';
 
 const DAYS = ['Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado']
 
-const RenderList = ({ elements , id='',  handleChange , selected=false, printMode=false } ) => {
+const RenderList = ({ elements , id='',  handleChange , selected=false, printMode=false} ) => {
   const items = elements.map((item, i) => {
     const { virtual, date, classroom, id} = item;
 
