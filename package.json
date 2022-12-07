@@ -10,7 +10,7 @@
     "babel-polyfill": "6.26.0",
     "babel-preset-kyt-react": "0.3.0",
     "compression": "1.6.2",
-    "express": "4.15.3",
+    "express": "4.17.3",
     "gh-pages": "^2.1.1",
     "i18next": "^18.0.0",
     "kyt": "0.9.0",
